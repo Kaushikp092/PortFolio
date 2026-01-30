@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Navbar.css"; // we'll add styles here
 
 const Navbar = ({logo}) => {
