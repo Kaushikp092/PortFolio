@@ -12,7 +12,7 @@ export function TypingAnimation({
    deleteSpeed,
    delay = 0,
    pauseDelay = 2000,
-   loop = true,
+   loop = false,
    as: Component = "span",
    startOnView = true,
    showCursor = true,
@@ -20,9 +20,13 @@ export function TypingAnimation({
    cursorStyle = "line",
    ...props
 }) {
-   const MotionComponent = motion.create(Component, {
-      forwardMotionProps: true,
-   });
+   const MotionComponent = useMemo(
+      () =>
+         motion.create(Component, {
+            forwardMotionProps: true,
+         }),
+      [Component],
+   );
 
    const [displayedText, setDisplayedText] = useState("");
    const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -147,7 +151,7 @@ export function TypingAnimation({
       <MotionComponent
          ref={elementRef}
          className={cn(
-            "text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-[-0.02em] text-white",
+            "text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-[-0.02em] text-white/90 flex items-center ",
             className,
          )}
          {...props}
