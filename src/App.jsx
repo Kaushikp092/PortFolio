@@ -1,11 +1,12 @@
-// import { useState } from "react";
-import Pattern from "./components/Pattern";
-import Navbar from "./components/Navbar";
-import { TypingAnimation } from "@/components/ui/typing-animation";
+import Background from "./components/Background";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home"
+import Footer from "./components/Footer/Footer";
+
 function App() {
    return (
       <>
-         <Pattern
+         <Background
             style={{
                position: "fixed",
                top: 0,
@@ -15,8 +16,11 @@ function App() {
                zIndex: -1,
             }}
          />
-         <Navbar logo="KP" style={{ position: "relative" }} />
-         <TypingAnimation words={["Junior Web Developer", "Learning Web development", "Final"]}>hello</TypingAnimation>
+         <Navbar logo="KP" />
+         <Home />
+         
+         {/* Footer */}
+         <Footer />
       </>
    );
 }
