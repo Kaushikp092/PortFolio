@@ -12,7 +12,7 @@ export function TypingAnimation({
    deleteSpeed,
    delay = 0,
    pauseDelay = 2000,
-   loop = false,
+   loop = true,
    as: Component = "span",
    startOnView = true,
    showCursor = true,
