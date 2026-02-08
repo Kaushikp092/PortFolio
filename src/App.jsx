@@ -1,7 +1,11 @@
 import Background from "./components/Background";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home"
-import Footer from "./components/Footer/Footer";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
+import About from "./components/About";
+import Project from "./components/Projects/Project";
+import Form from "./components/Contact";
+Form
 
 function App() {
    return (
@@ -13,13 +17,25 @@ function App() {
                left: 0,
                width: "100%",
                height: "100%",
-               zIndex: -1,
+               zIndex: -2,
             }}
          />
          <Navbar logo="KP" />
-         <Home />
-         
-         {/* Footer */}
+         <div id="home">
+            <Home />
+         </div>
+         <div id="about">
+            <About />
+         </div>
+
+         <div id="project">
+            <Project />
+         </div>
+
+         <div id="contact">
+            <Form />
+         </div>
+
          <Footer />
       </>
    );
