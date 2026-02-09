@@ -4,8 +4,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Project from "./components/Projects/Project";
-import Form from "./components/Contact";
-Form
+import Form from "./components/Contact/Contact";
 
 function App() {
    return (
@@ -21,22 +20,25 @@ function App() {
             }}
          />
          <Navbar logo="KP" />
-         <div id="home">
+         <main className="page-content">
+
+         <section id="home">
             <Home />
-         </div>
-         <div id="about">
+         </section>
+         <section id="about">
             <About />
-         </div>
+         </section>
 
-         <div id="project">
+         <section id="project">
             <Project />
-         </div>
+         </section>
 
-         <div id="contact">
+         <section id="contact">
             <Form />
-         </div>
+         </section>
 
          <Footer />
+         </main>
       </>
    );
 }
