@@ -5,10 +5,13 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Project from "./components/Projects/Project";
 import Form from "./components/Contact/Contact";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
    return (
       <>
+      
+      <SpeedInsights />
          <Background
             style={{
                position: "fixed",
