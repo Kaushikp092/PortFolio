@@ -15,9 +15,9 @@
 }
 
 .navbar.scrolled {
-  background: rgba(81, 79, 134, 0.3); /* semi-transparent white */
-  backdrop-filter: blur(10px);          /* glass blur effect */
-  -webkit-backdrop-filter: blur(10px);  /* Safari support */
+  background: rgba(36, 37, 46, 0.3); 
+  backdrop-filter: blur(12px);        
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
