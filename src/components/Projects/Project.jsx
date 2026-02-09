@@ -13,7 +13,7 @@ const Project = () => {
         Projects
       </span>
       <div
-        className="md:text-2xl lg:text-xl font-semibold leading-tight tracking-[-0.02em] text-white/75 max-w-10/12"
+        className="flex justify-center items-center md:text-2xl lg:text-4xl font-semibold leading-tight tracking-[-0.02em] text-white/75 max-w-10/12"
         style={{
           margin: "2rem",
         }}
