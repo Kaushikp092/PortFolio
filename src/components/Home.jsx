@@ -27,7 +27,7 @@ const Home = () => {
                   style={{
                      marginBottom: "2rem",
                   }}
-                  words={["learning", "web", "MERN"]}
+                  words={["Junior web developer", "Learning web dev", "MERN Stack"]}
                />
             </div>
             <div className="flex justify-center items-center">
