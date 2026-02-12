@@ -81,3 +81,10 @@
 .form-btn:hover {
   background: rgba(59, 130, 246, 1);
 }
+
+.error{
+  color: red;
+}
+.success{
+  color: green;
+}
