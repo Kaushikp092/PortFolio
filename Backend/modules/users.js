@@ -10,8 +10,9 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     message:{
-        type: String
+        type: String,
+        required: true
     }
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model('ContactFormDetails', UserSchema);
