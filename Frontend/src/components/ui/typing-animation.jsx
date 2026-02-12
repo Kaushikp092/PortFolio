@@ -20,13 +20,10 @@ export function TypingAnimation({
    cursorStyle = "line",
    ...props
 }) {
-   const MotionComponent = useMemo(
-      () =>
-         motion.create(Component, {
-            forwardMotionProps: true,
-         }),
+    const MotionComponent = useMemo(
+      () => motion(Component),
       [Component],
-   );
+    );
 
    const [displayedText, setDisplayedText] = useState("");
    const [currentWordIndex, setCurrentWordIndex] = useState(0);
