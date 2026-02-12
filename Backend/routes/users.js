@@ -5,25 +5,27 @@ const User = require('../modules/users');
 route.get('/', async (req,res) => {
     try {
         const users = await User.find();
-        if(!users) return res.status(404).json({
+        if(users.length === 0) return res.status(404).json({
             message: 'Users not Found'
         })
         res.status(200).json(users);
     } catch (err) {
-        res.status(400).json({message: err.message});
+        res.status(500).json({error: err.message});
     }
 })
 
-route.post('/', async (req,res)=>{
+route.post('/message', async (req,res)=>{
     try {
-        const user = await User.create({
-            name: req.body.name,
-            email: req.body.email,
-            message : req.body.message
-        })
-        res.status(201).json(user);
+        const {name, email, message} = req.body;
+
+        if(!name || !email || !message) return res.status(400).json({error: 'All fields are required'});
+        const newUser = new User({name, email, message});
+        await newUser.save();
+        
+        const users = await User.find();
+        res.status(201).json({users});
     } catch (err) {
-        res.status(400).json({message: err.message});
+        res.status(500).json({error: err.message});
     }
 })
 
