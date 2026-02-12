@@ -1,130 +1,41 @@
-// import { useState } from "react";
-
-// const Form = () => {
-//    const [formData, setFormData] = useState({
-//       name: "",
-//       email: "",
-//       message: "",
-//    });
-
-//    const handleChange = (e) => {
-//       const { name, value } = e.target;
-//       setFormData((prev) => ({ ...prev, [name]: value }));
-//    };
-
-//    const handleSubmit = (e) => {
-//       e.preventDefault();
-//       // You can later connect this to an API, EmailJS, etc.
-//       console.log("Contact form submitted:", formData);
-//    };
-
-//    return (
-//       <section
-//          className="flex items-center justify-center"
-//          style={{
-//             maxWidth: "1100px",
-//             padding: "2rem 3rem",
-//             margin: "1rem auto",
-//          }}
-//       >
-//          <div className="w-full max-w-xl bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl shadow-xl px-6 py-8 md:px-10 md:py-10" style={{
-//             padding: "1rem"
-//          }}>
-//             <h2 className="text-2xl md:text-3xl font-semibold text-white/90 mb-2 text-center md:text-left">
-//                Let&apos;s work together
-//             </h2>
-//             <p className="text-sm md:text-base text-white/60 mb-8 text-center md:text-left">
-//                Have a project in mind or just want to say hi? Drop a message and
-//                I&apos;ll get back to you as soon as I can.
-//             </p>
-
-//             <form onSubmit={handleSubmit} className="space-y-5" style={{padding: '10px'}}>
-//                <div>
-//                   <label
-//                      className="block text-sm font-medium text-white/70 mb-1.5"
-//                      htmlFor="name"
-//                   >
-//                      Your Name
-//                   </label>
-//                   <input
-//                      id="name"
-//                      name="name"
-//                      type="text"
-//                      value={formData.name}
-//                      onChange={handleChange}
-//                      placeholder="Enter your name"
-//                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-transparent transition"
-//                   />
-//                </div>
-
-//                <div>
-//                   <label
-//                      className="block text-sm font-medium text-white/70 mb-1.5"
-//                      htmlFor="email"
-//                   >
-//                      Your Email
-//                   </label>
-//                   <input
-//                      id="email"
-//                      name="email"
-//                      type="email"
-//                      value={formData.email}
-//                      onChange={handleChange}
-//                      placeholder="you@example.com"
-//                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-transparent transition"
-//                   />
-//                </div>
-
-//                <div>
-//                   <label
-//                      className="block text-sm font-medium text-white/70 mb-1.5"
-//                      htmlFor="message"
-//                   >
-//                      Your Message
-//                   </label>
-//                   <textarea
-//                      id="message"
-//                      name="message"
-//                      rows={4}
-//                      value={formData.message}
-//                      onChange={handleChange}
-//                      placeholder="Tell me a bit about what you have in mind..."
-//                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-transparent transition resize-none"
-//                   />
-//                </div>
-
-//                <button
-//                   type="submit"
-//                   className="w-full inline-flex items-center justify-center rounded-full bg-blue-500/90 px-6 py-3 text-sm md:text-base font-semibold text-white shadow-md transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400/60"
-//                >
-//                   Send Message
-//                </button>
-//             </form>
-//          </div>
-//       </section>
-//    );
-// };
-
-// export default Form;
-
 import { useState } from "react";
 import "./Contact.css"; // vanilla CSS file
 
 const Form = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const API_URL = import.meta.env.VITE_API_URL;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
+    setError("");
+    setSuccess("");
+
+    try {
+      const res = await fetch(`${API_URL}/users/message`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "Submission Failed");
+      }
+      
+      // If backend returns something, you can ignore it
+      await res.json();
+      setSuccess('Message sent successfully!');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -140,35 +51,32 @@ const Form = () => {
           <div className="form-group">
             <label htmlFor="name">Your Name</label>
             <input
-              id="name"
-              name="name"
               type="text"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
+              required
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Your Email</label>
             <input
-              id="email"
-              name="email"
               type="email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
+              required
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="message">Your Message</label>
             <textarea
-              id="message"
               name="message"
               rows={4}
-              value={formData.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell me a bit about what you have in mind..."
             />
           </div>
@@ -177,10 +85,12 @@ const Form = () => {
             Send Message
           </button>
         </form>
+
+        {error && <p className="error">{error}</p>}
+      {success && <p className="success">{success}</p> }
       </div>
     </section>
   );
 };
 
 export default Form;
-
