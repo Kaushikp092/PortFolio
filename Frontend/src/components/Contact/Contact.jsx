@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Contact.css"; // vanilla CSS file
 
 const Form = () => {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ const Form = () => {
     setSuccess("");
 
     try {
-      const res = await fetch(`${BACKEND_URL}/api/users/message`, {
+      const res = await fetch(`${VITE_BACKEND_URL}/api/users/message`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ name, email, message }),
