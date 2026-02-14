@@ -16,7 +16,7 @@ const Form = () => {
     setSuccess("");
 
     try {
-      const res = await fetch(`${BACKEND_URL}/users/message`, {
+      const res = await fetch(`${BACKEND_URL}/api/users/message`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ name, email, message }),
