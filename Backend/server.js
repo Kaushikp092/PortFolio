@@ -17,7 +17,7 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() =>
     app.listen(port, () => {
-      console.log("Server running properly");
+      console.log("Server running on atlas properly");
     }),
   )
   .catch((err) => console.log("monogDB connection Error: ", err));
