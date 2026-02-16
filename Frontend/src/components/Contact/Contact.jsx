@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Contact.css"; // vanilla CSS file
+import { BorderBeam } from "../ui/border-beam";
 
 const Form = () => {
   const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -39,8 +40,10 @@ const Form = () => {
   };
 
   return (
+    <>
     <section className="form-section">
       <div className="form-card">
+    <BorderBeam size={80} duration={8} colorFrom="#3b82f6" colorTo="#9333ea"/>
         <h2 className="form-title">Let&apos;s work together</h2>
         <p className="form-desc">
           Have a project in mind or just want to say hi? Drop a message and
@@ -90,6 +93,7 @@ const Form = () => {
       {success && <p className="success">{success}</p> }
       </div>
     </section>
+    </>
   );
 };
 
