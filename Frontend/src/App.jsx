@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Project from "./components/Projects/Project";
 import Form from "./components/Contact/Contact";
+import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             }}
          />
          <Navbar logo="KP" />
+         <ScrollProgress />
          <main className="page-content">
 
          <section id="home">
