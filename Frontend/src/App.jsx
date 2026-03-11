@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Project from "./components/Projects/Project";
 import Form from "./components/Contact/Contact";
+import TechStack from "./components/TechStack/TechStack";
 import { ScrollProgress } from "@/components/ui/scroll-progress"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
@@ -32,6 +33,10 @@ function App() {
          </section>
          <section id="about">
             <About />
+         </section>
+
+         <section id='tectstack'>
+            <TechStack />
          </section>
 
          <section id="project">
