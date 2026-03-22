@@ -1,7 +1,7 @@
-import { cn } from '@/lib/utils';
-import { useMotionValue, animate, motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import useMeasure from 'react-use-measure';
+import { motionValue, animate } from 'motion';
+import { motion } from 'motion/react';
 
 export type InfiniteSliderProps = {
   children: React.ReactNode;
@@ -25,12 +25,11 @@ export function InfiniteSlider({
   const [isHovering, setIsHovering] = useState(false);
   const currentSpeed = isHovering && speedOnHover ? speedOnHover : speed;
   const [ref, { width, height }] = useMeasure();
-  const translation = useMotionValue(0);
+  const translation = motionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [key, setKey] = useState(0);
 
   useEffect(() => {
-    let controls;
     const size = direction === 'horizontal' ? width : height;
     const contentSize = size + gap;
     const from = reverse ? -contentSize / 2 : 0;
@@ -39,6 +38,7 @@ export function InfiniteSlider({
     const distanceToTravel = Math.abs(to - from);
     const duration = distanceToTravel / currentSpeed;
 
+    let controls;
     if (isTransitioning) {
       const remainingDistance = Math.abs(translation.get() - to);
       const transitionDuration = remainingDistance / currentSpeed;
@@ -64,7 +64,7 @@ export function InfiniteSlider({
       });
     }
 
-    return controls?.stop;
+    return () => controls?.stop();
   }, [
     key,
     translation,
@@ -91,7 +91,7 @@ export function InfiniteSlider({
     : {};
 
   return (
-    <div className={cn('overflow-hidden', className)}>
+    <div className={'overflow-hidden ' + (className || '')}>
       <motion.div
         className='flex w-max'
         style={{
@@ -110,3 +110,4 @@ export function InfiniteSlider({
     </div>
   );
 }
+
