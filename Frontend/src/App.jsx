@@ -6,51 +6,50 @@ import About from "./components/About";
 import Project from "./components/Projects/Project";
 import Form from "./components/Contact/Contact";
 import TechStack from "./components/TechStack/TechStack";
-import { ScrollProgress } from "@/components/ui/scroll-progress"
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SectionScrollAnimation } from "./components/ui/section-scroll-animation";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
-   return (
-      <>
-      
-      <SpeedInsights />
-         <Background
-            style={{
-               position: "fixed",
-               top: 0,
-               left: 0,
-               width: "100%",
-               height: "100%",
-               zIndex: -2,
-            }}
-         />
-         <Navbar logo="KP" />
-         <ScrollProgress />
-         <main className="page-content">
+	return (
+		<>
+			<SpeedInsights />
+			<Background
+				style={{
+					position: "fixed",
+					top: 0,
+					left: 0,
+					width: "100%",
+					height: "100%",
+					zIndex: -2,
+				}}
+			/>
+			<Navbar logo="KP" />
+			<ScrollProgress />
+			<main className="page-content">
+				<SectionScrollAnimation id="home">
+					<Home />
+				</SectionScrollAnimation>
+				<SectionScrollAnimation id="about">
+					<About />
+				</SectionScrollAnimation>
 
-         <section id="home">
-            <Home />
-         </section>
-         <section id="about">
-            <About />
-         </section>
+				<SectionScrollAnimation id="techstack">
+					<TechStack />
+				</SectionScrollAnimation>
 
-         <section id='tectstack'>
-            <TechStack />
-         </section>
+				<SectionScrollAnimation id="projects">
+					<Project />
+				</SectionScrollAnimation>
 
-         <section id="project">
-            <Project />
-         </section>
+				<SectionScrollAnimation id="contact">
+					<Form />
+				</SectionScrollAnimation>
 
-         <section id="contact">
-            <Form />
-         </section>
-
-         <Footer />
-         </main>
-      </>
-   );
+				<Footer />
+			</main>
+		</>
+	);
 }
 
 export default App;
