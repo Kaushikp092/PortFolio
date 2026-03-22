@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
-import { InfiniteSlider } from '../../../components/motion-primitives/infinite-slider';
+import { cn } from "@/lib/utils";
+import { InfiniteSlider } from "../../../components/motion-primitives/infinite-slider";
 
 const TechStack = () => {
 	const logos = [
@@ -15,14 +15,24 @@ const TechStack = () => {
 		{ title: "RENDER", img: "/render.svg" },
 	];
 	return (
-		<div className="w-screen flex flex-col items-center justify-center" style={{ paddingTop: '5rem', paddingBottom: '2rem', paddingLeft: '2rem', paddingRight: '2rem' }}>
-			<span className="flex justify-center text-2xl md:text-4xl lg:text-5xl font-semibold text-white/75" style={{ marginBottom: '4rem' }}>
+		<div
+			className="w-screen flex flex-col items-center justify-center"
+			style={{
+				paddingTop: "5rem",
+				paddingBottom: "2rem",
+				paddingLeft: "2rem",
+				paddingRight: "2rem",
+			}}
+		>
+			<span
+				className="flex justify-center text-2xl md:text-4xl lg:text-5xl font-semibold text-white/75"
+				style={{ marginBottom: "4rem" }}
+			>
 				Tech Stack
 			</span>
-			<div style={{ marginBottom: '2rem' }} />
+			<div style={{ marginBottom: "2rem" }} />
 			<InfiniteSlider
 				speed={65}
-				speedOnHover={40}
 				gap={40}
 				className={cn("w-full py-20 md:py-24")}
 			>
@@ -47,4 +57,3 @@ const TechStack = () => {
 };
 
 export default TechStack;
-
