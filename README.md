@@ -70,12 +70,6 @@ npm start
 
 ---
 
-## 📸 Screenshots
-
-_Add screenshots of your portfolio here_
-
----
-
 ## 📬 Contact
 
 - 📧 Email: your-email@example.com  
