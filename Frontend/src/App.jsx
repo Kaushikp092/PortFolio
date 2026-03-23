@@ -26,7 +26,7 @@ function App() {
 			/>
 			<Navbar logo="KP" />
 			<ScrollProgress />
-			<main className="page-content">
+<main className="page-content" style={{ position: 'relative' }}>
 				<SectionScrollAnimation id="home">
 					<Home />
 				</SectionScrollAnimation>

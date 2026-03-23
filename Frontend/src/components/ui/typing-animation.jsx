@@ -21,7 +21,7 @@ export function TypingAnimation({
    ...props
 }) {
     const MotionComponent = useMemo(
-      () => motion(Component),
+() => motion.create(Component),
       [Component],
     );
 
