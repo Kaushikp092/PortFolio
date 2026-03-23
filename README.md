@@ -5,7 +5,7 @@ This project showcases my skills, projects, and experience as a web developer.
 
 ## 🚀 Live Demo
 
-🔗 https://your-portfolio-link.com
+🔗 https://port-folio-blond-seven.vercel.app/
 
 ---
 
@@ -57,7 +57,7 @@ portfolio/
 ## ⚙️ Installation & Setup
 
 1. Clone the repository  
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/Kaushikp092/PortFolio
 
 2. Navigate to project folder  
 cd portfolio
@@ -79,8 +79,8 @@ _Add screenshots of your portfolio here_
 ## 📬 Contact
 
 - 📧 Email: your-email@example.com  
-- 💼 LinkedIn: https://linkedin.com/in/your-profile  
-- 🐙 GitHub: https://github.com/your-username  
+- 💼 LinkedIn: https://www.linkedin.com/in/kaushik-patil-644553343/
+- 🐙 GitHub: https://github.com/Kaushikp092/PortFolio
 
 ---
 
