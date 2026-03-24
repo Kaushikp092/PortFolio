@@ -1,5 +1,5 @@
 import { InView } from "./ui/in-view";
-import resume from "/KaushikPatilCV.pdf";
+import resume from "/Kaushik Patil - CV.pdf";
 const About = () => {
 	const unique = {
 		color: "rgb(14, 157, 205)",
