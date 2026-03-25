@@ -11,7 +11,7 @@ export function TypingAnimation({
    typeSpeed,
    deleteSpeed,
    delay = 0,
-   pauseDelay = 2000,
+   pauseDelay = 1000,
    loop = true,
    as: Component = "span",
    startOnView = true,
