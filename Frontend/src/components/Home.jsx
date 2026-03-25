@@ -73,7 +73,7 @@ const Home = () => {
 					<motion.div
 						initial={{ opacity: 0, y: 10 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, ease: "easeOut", delay: 2.1 }}
+						transition={{ duration: 0.5, ease: "easeOut", delay: 3.1 }}
 					>
 						<TypingAnimation
 							className="text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-[-0.02em] text-blue-400"
@@ -84,13 +84,21 @@ const Home = () => {
 						/>
 					</motion.div>
 				</div>
-				<div className="flex justify-center items-center">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{
+						delay: 2.1,
+						ease: "easeIn",
+					}}
+					className="flex justify-center items-center"
+				>
 					<img
 						src={personal}
 						alt="Kaushik Patil"
-						className="w-[300px] h-[300px] rounded-full object-cover "
+						className="w-75 h-75 rounded-full object-cover "
 					/>
-				</div>
+				</motion.div>
 			</div>
 		</>
 	);
