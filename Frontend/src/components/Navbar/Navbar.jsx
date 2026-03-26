@@ -70,7 +70,7 @@ const Navbar = ({ logo }) => {
 						data-id="Project"
 						type="button"
 						className="px-6 py-3 text-lg font-medium text-white/80 transition-all hover:text-white hover:px-8 hover:py-4 data-[checked=true]:text-white"
-						onClick={() => scrollToSection("project")}
+						onClick={() => scrollToSection("projects")}
 					>
 						Project
 					</button>
